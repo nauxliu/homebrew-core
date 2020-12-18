@@ -37,8 +37,13 @@ class Go < Formula
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     on_macos do
-      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+      if Hardware::CPU.arm?
+        url "https://storage.googleapis.com/golang/go1.16beta1.darwin-arm64.tar.gz"
+        sha256 "fd57f47987bb330fd9b438e7b4c8941b63c3807366602d99c1d99e0122ec62f1"
+      else
+        url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+        sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+      end
     end
 
     on_linux do
