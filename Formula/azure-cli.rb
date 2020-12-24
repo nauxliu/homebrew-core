@@ -8,6 +8,7 @@ class AzureCli < Formula
   sha256 "dc8318bef61fb1054d9a64f6243b203438d8c66114c82879339aae568460ff58"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git"
+  revision 1
 
   livecheck do
     url :head
@@ -23,8 +24,7 @@ class AzureCli < Formula
   end
 
   depends_on "openssl@1.1"
-  # Azure CLI is not compatible with Python 3.9 yet
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
